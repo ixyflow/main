@@ -83,13 +83,14 @@
 
 /* ── Tokens ── */
 :root {
-  --cyan:      #00E5FF;
-  --cyan-dim:  #00B4D8;
-  --navy:      #0D1B2A;
-  --navy-mid:  #112233;
-  --navy-card: #0F2035;
-  --navy-el:   #162840;
-  --navy-hi:   #1E3650;
+  --cyan:      #38E8E8;
+  --cyan-dim:  #0F6FB8;
+  --navy:      #0A0A0A;
+  --navy-mid:  #1A1A1A;
+  --navy-card: #111111;
+  --navy-el:   #1E1E1E;
+  --navy-hi:   #252525;
+  --silver:    #C7D0D9;
   --white:     #F0F8FF;
   --muted:     #5A7A96;
   --muted-hi:  #7A9BB5;

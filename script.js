@@ -2,26 +2,28 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks  = document.querySelector('.nav-links');
 
+function setMenuOpen(isOpen) {
+  navLinks?.classList.toggle('open', isOpen);
+  navToggle?.setAttribute('aria-expanded', String(isOpen));
+}
+
 navToggle?.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  setMenuOpen(!navLinks?.classList.contains('open'));
 });
 
 // Close mobile nav on link click
 navLinks?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
+  link.addEventListener('click', () => setMenuOpen(false));
 });
 
-// Contact form submission
+// Let the browser submit the form without pretending delivery succeeded.
 document.getElementById('contactForm')?.addEventListener('submit', e => {
-  e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'Sent!';
-  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Opening Email...';
   setTimeout(() => {
-    btn.textContent = 'Send Message';
-    btn.disabled = false;
-    e.target.reset();
-  }, 3000);
+    btn.textContent = originalText;
+  }, 4000);
 });
 
 // Fade-in on scroll
@@ -35,7 +37,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-document.querySelectorAll('.service-card, .stat, .about-text').forEach(el => {
+document.querySelectorAll('.service-card, .stat, .about-text, .trust-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';

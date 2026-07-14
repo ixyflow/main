@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Premium TechNoir">
+  <defs>
+    <linearGradient id="ptn-face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7FF5F5"/>
+      <stop offset="45%" stop-color="#38E8E8"/>
+      <stop offset="100%" stop-color="#0F6FB8"/>
+    </linearGradient>
+    <linearGradient id="ptn-face-dim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38E8E8"/>
+      <stop offset="100%" stop-color="#0F6FB8"/>
+    </linearGradient>
+    <radialGradient id="ptn-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38E8E8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#38E8E8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ptn-blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    .ptn-spin-cw   { transform-origin: 100px 100px; animation: ptn-rot-cw 16s linear infinite; }
+    .ptn-spin-ccw  { transform-origin: 100px 100px; animation: ptn-rot-ccw 12s linear infinite; }
+    .ptn-orbit     { transform-origin: 100px 100px; animation: ptn-rot-cw 24s linear infinite; }
+    .ptn-pulse     { animation: ptn-pulse 2.6s ease-in-out infinite; transform-origin: 100px 100px; }
+    .ptn-glow-pulse{ animation: ptn-glow-pulse 3.2s ease-in-out infinite; transform-origin: 100px 100px; }
+
+    @keyframes ptn-rot-cw  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
+    @keyframes ptn-rot-ccw { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
+    @keyframes ptn-pulse {
+      0%, 100% { opacity: 0.85; transform: scale(1); }
+      50%      { opacity: 1;    transform: scale(1.12); }
+    }
+    @keyframes ptn-glow-pulse {
+      0%, 100% { opacity: 0.5; }
+      50%      { opacity: 1;   }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ptn-spin-cw, .ptn-spin-ccw, .ptn-orbit, .ptn-pulse, .ptn-glow-pulse {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <circle cx="100" cy="100" r="92" fill="url(#ptn-glow)" class="ptn-glow-pulse"/>
+
+  <g class="ptn-orbit" opacity="0.35">
+    <circle cx="100" cy="100" r="86" fill="none" stroke="#38E8E8" stroke-width="0.6" stroke-dasharray="1.5 10"/>
+  </g>
+
+  <g class="ptn-spin-cw">
+    <polygon points="100,10 172,50 172,130 100,170 28,130 28,50"
+             fill="none" stroke="url(#ptn-face)" stroke-width="3.5" stroke-linejoin="round"/>
+  </g>
+
+  <g class="ptn-spin-ccw" opacity="0.55">
+    <polygon points="100,32 148,58 148,122 100,148 52,122 52,58"
+             fill="none" stroke="url(#ptn-face-dim)" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <g class="ptn-spin-cw" style="animation-duration: 20s;" opacity="0.9">
+    <path d="M 100 46 L 128 118 L 100 100 L 72 118 Z"
+          fill="url(#ptn-face)" filter="url(#ptn-blur)" opacity="0.25"/>
+    <path d="M 100 46 L 128 118 L 100 100 L 72 118 Z"
+          fill="none" stroke="url(#ptn-face)" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <circle cx="100" cy="100" r="8" fill="url(#ptn-face)" class="ptn-pulse"/>
+  <circle cx="100" cy="100" r="8" fill="none" stroke="#38E8E8" stroke-width="0.75" opacity="0.5" class="ptn-glow-pulse"/>
+</svg>
