@@ -37,7 +37,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-document.querySelectorAll('.service-card, .stat, .about-text, .trust-item').forEach(el => {
+document.querySelectorAll('.service-card, .stat, .about-text, .trust-item, .confidence-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
